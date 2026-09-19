@@ -27,7 +27,7 @@ La mejor arquitectura para usar este entorno en tus proyectos es importarlo como
 ### Paso 1: Añadir el submódulo
 En la raíz del proyecto destino (tu proyecto de Angular, Node, etc.), ejecuta:
 ```bash
-git submodule add git@github.com:https://github.com/LafuenteColoradoJose/mi-entorno-agentico .agentic-base
+git submodule add https://github.com/LafuenteColoradoJose/mi-entorno-agentico .agentic-base
 ```
 
 ### Paso 2: Crear el "Archivo Puntero"
