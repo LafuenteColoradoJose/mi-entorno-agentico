@@ -13,7 +13,7 @@ Políticas estrictas y marcos de trabajo que el agente debe obedecer el 100% del
 Workflows bajo demanda utilizando el patrón de *progressive disclosure* para ahorrar contexto.
 - [`skills/plantilla-base/SKILL.md`](./skills/plantilla-base/SKILL.md): Molde maestro estructurado para crear nuevas skills.
 - [`skills/html-semantics-and-a11y/SKILL.md`](./skills/html-semantics-and-a11y/SKILL.md): Fuerza al agente a comportarse como un Frontend Senior, exigiendo HTML5 semántico y estándares estrictos de accesibilidad.
-- [`skills/ux-ui-design-principles/SKILL.md`](./skills/ux-ui-design-principles/SKILL.md): Instruye a la IA en principios de diseño visual, carga cognitiva, espaciado (regla de los 8px) y metodologías estrictas para la correcta visualización de datos en Dashboards.
+- [`skills/ux-ui-design-principles/SKILL.md`](./skills/ux-ui-design-principles/SKILL.md): Instruye a la IA en principios de diseño visual, carga cognitiva, espaciado (regla de los 8px), enfoques 100% Mobile-First (Responsive Design fluido) y metodologías estrictas para la correcta visualización de datos en Dashboards.
 
 ### 3. MCP (Model Context Protocol)
 - [`mcp-config/mcp_servers.json`](./mcp-config/mcp_servers.json): Configuración preparada con los conectores externos más útiles para dar contexto al agente (Filesystem acotado, comandos de Git, inspección de bases de datos Postgres y Puppeteer para testing visual).
@@ -41,4 +41,11 @@ Antes de ejecutar cualquier tarea o escribir código, ESTÁS OBLIGADO a leer, as
 2. Flujo de Trabajo y DoD: `./.agentic-base/rules/master-workflow.md`
 
 Tus procedimientos estándar (SOPs) y estándares de código residen en `./.agentic-base/skills/`. Utiliza tu herramienta de lectura para consultarlos según requiera el contexto de la tarea.
+```
+
+### Paso 3: Actualizar el submódulo (Mantenimiento)
+Dado que las *Rules* y *Skills* de este repositorio genérico irán evolucionando, puedes traerte las últimas novedades a tus proyectos locales simplemente ejecutando este comando desde la raíz de tu proyecto destino (por ejemplo, dentro de `AEMET_Visualizer_Pro`):
+
+```bash
+git submodule update --remote --merge
 ```
