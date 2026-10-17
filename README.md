@@ -2,6 +2,66 @@
 
 Este repositorio es un **"kit de supervivencia agéntico"** diseñado por y para perfiles DevOps/FullStack. Es independiente del framework o IDE (Antigravity, Claude Code, Cursor, GitHub Copilot) y sirve para centralizar y estandarizar el comportamiento de la Inteligencia Artificial.
 
+<a id="generico-vs-especifico"></a>
+
+## 🧭 Cómo está pensado esto: genérico vs. específico
+
+Antes de usar el kit conviene entender su **filosofía de diseño** y los tres conceptos que maneja.
+
+### ¿Qué es una Rule, una Skill y un MCP?
+
+- **Rule (Regla):** una ley **siempre activa** y de obligado cumplimiento. No se "activa": se acata en el 100% de las tareas (ej. seguridad, flujo de trabajo).
+- **Skill (Habilidad):** un **procedimiento bajo demanda**. El agente la activa solo cuando la tarea encaja con su `description`, ahorrando contexto (patrón *progressive disclosure*).
+- **MCP (Model Context Protocol):** un **conector** a una herramienta o servicio externo (sistema de archivos, Git, bases de datos, un navegador...). Le da al agente acceso a cosas que no son texto.
+
+Separarlos no es capricho: cada pieza tiene un alcance y un ciclo de vida distintos. Mezclarlas obligaría a cargar siempre contexto que no necesitas.
+
+### El modelo: una base universal + especialización por proyecto
+
+```
+        ┌───────────────────────────────────────────────┐
+        │   BASE GENÉRICA (este repo, como submódulo)    │
+        │   Rules:  guardrails, SDLC                     │
+        │   Skills: a11y, UX/UI                          │
+        │   MCP:    filesystem, git, navegador           │
+        └───────────────────────────────────────────────┘
+                              │
+          ┌───────────────────┼───────────────────┐
+          ▼                   ▼                   ▼
+   Proyecto Angular     Proyecto Nuxt      Proyecto PyTorch
+   + skills/angular     + skills/nuxt      + skills/pytorch
+   + MCP de Angular     + MCP de Nuxt      + MCP de BD vectorial
+```
+
+La base contiene **solo lo que aplica siempre, sin importar la tecnología**. Todo lo que depende de una tecnología concreta vive **en el proyecto**, no aquí. Así la base se mantiene pequeña y universal, y no consume contexto de más.
+
+### ¿Dónde va cada cosa?
+
+| Pieza | En la base (genérico) | Por proyecto (específico) | Dónde vive lo específico |
+|---|---|---|---|
+| **Rules** | guardrails, SDLC | reglas de dominio ("usar siempre la API X") | `AGENTS.md` del proyecto |
+| **Skills** | a11y, UX/UI | `angular`, `nuxt`, `pytorch`, `postgres-avanzado` | `.opencode/skills/` del proyecto |
+| **MCP** | filesystem, git, navegador | BD, MCP de Nuxt/Figma/Sentry, k8s | config MCP del proyecto |
+
+### La regla de decisión
+
+> **¿Aplica a TODOS mis proyectos sin excepción?** → va en la **base**.
+> **¿Solo a los que usan X tecnología?** → va en el **proyecto**.
+
+### Ejemplos según tu perfil
+
+- 🕸️ **Web / FullStack:** base = a11y + UX/UI. Por proyecto: skill `angular` o `nuxt`, MCP de Nuxt.
+- 🖧 **SysAdmin / Redes:** base = guardrails. Por proyecto: skills de `kubernetes`/`nginx`, MCP de Kubernetes.
+- 🧠 **IA / BigData:** por proyecto: skill `pytorch`, MCP de base de datos vectorial.
+
+### Cómo añadir algo específico a un proyecto (mini-tutorial)
+
+1. **Skill nueva:** copia [`templates/SKILL.template.md`](./templates/SKILL.template.md) a `.opencode/skills/<nombre>/SKILL.md` en tu proyecto y rellénalo.
+2. **MCP nuevo:** añade su entrada en la configuración MCP de tu proyecto (ver el patrón en [`mcp-config/README.md`](./mcp-config/README.md)).
+3. **Regla nueva:** añádela al `AGENTS.md` de tu proyecto.
+
+Y listo: la base sigue genérica y cada proyecto se especializa sin tocar el kit común.
+
 ## 🏗️ Arquitectura del Kit
 
 ### 1. Rules (El Sistema Nervioso y las Leyes)
@@ -11,12 +71,12 @@ Políticas estrictas y marcos de trabajo que el agente debe obedecer el 100% del
 
 ### 2. Skills (Recetarios / Procedimientos Operativos)
 Workflows bajo demanda utilizando el patrón de *progressive disclosure* para ahorrar contexto.
-- [`skills/plantilla-base/SKILL.md`](./skills/plantilla-base/SKILL.md): Molde maestro estructurado para crear nuevas skills.
+- [`templates/SKILL.template.md`](./templates/SKILL.template.md): Molde maestro estructurado para crear nuevas skills (vive fuera de `skills/` para que el agente no lo confunda con una skill real).
 - [`skills/html-semantics-and-a11y/SKILL.md`](./skills/html-semantics-and-a11y/SKILL.md): Fuerza al agente a comportarse como un Frontend Senior, exigiendo HTML5 semántico y estándares estrictos de accesibilidad.
 - [`skills/ux-ui-design-principles/SKILL.md`](./skills/ux-ui-design-principles/SKILL.md): Instruye a la IA en principios de diseño visual, carga cognitiva, espaciado (regla de los 8px), enfoques 100% Mobile-First (Responsive Design fluido) y metodologías estrictas para la correcta visualización de datos en Dashboards.
 
 ### 3. MCP (Model Context Protocol)
-- [`mcp-config/mcp_servers.json`](./mcp-config/mcp_servers.json): Configuración preparada con los conectores externos más útiles para dar contexto al agente (Filesystem acotado, comandos de Git, inspección de bases de datos Postgres y Puppeteer para testing visual).
+- [`mcp-config/mcp_servers.example.json`](./mcp-config/mcp_servers.example.json): Plantilla con conectores genéricos (Filesystem acotado, Git, Playwright y Chrome DevTools). Los conectores específicos como la base de datos se añaden por proyecto. Ver [`mcp-config/README.md`](./mcp-config/README.md) para sustituir los marcadores `${...}` sin hardcodear credenciales.
 
 ---
 
