@@ -31,7 +31,11 @@ El agente NUNCA debe saltar ciegamente a escribir código sin haber consolidado 
 4. **`/test` (Verify - Test/Debug & Coverage):** 
    - **Objetivo:** Demostrar que funciona de forma robusta.
    - **Acción:** Escribe o ejecuta pruebas unitarias y E2E.
-   - **✅ Definition of Done (DoD):** La cobertura de tests unitarios DEBE superar el **80%**. Si la cobertura es menor, el agente debe generar los tests faltantes antes de dar la fase por superada.
+   - **✅ Definition of Done (DoD), adaptado al tipo de proyecto:**
+     - **App / web / servicio:** cobertura de tests unitarios ≥ **80%**.
+     - **Scripts / automatización / infraestructura:** tests de comportamiento de las rutas críticas (no se exige un % global).
+     - **Datos / IA / notebooks:** validación de los datos de entrada + métrica del modelo + reproducibilidad (semilla y versiones fijadas).
+   - Si no se cumple el umbral aplicable, el agente debe generar los tests/validaciones faltantes antes de dar la fase por superada.
 
 5. **`/review` (Review - QA Gate):** 
    - **Objetivo:** Auditoría de calidad.
