@@ -6,6 +6,8 @@ y el proyecto se adhiere al [Versionado Semántico](https://semver.org/lang/es/)
 
 ## [No publicado]
 
+## [1.3.0] - 2026-10-17
+
 ### Añadido
 - Script de validación `scripts/validate.sh` y workflow de CI `.github/workflows/validate.yml`
   (frontmatter, enlaces internos y escaneo de secretos con gitleaks).
