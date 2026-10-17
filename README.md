@@ -154,3 +154,21 @@ git submodule update --remote --merge
 > cd .agentic-base
 > git checkout v1.1.0
 > ```
+
+---
+
+## 🧪 Validación
+
+El kit incluye un script que verifica la integridad (frontmatter de las skills y enlaces internos),
+ejecutable tanto en local como en CI:
+
+```bash
+./scripts/validate.sh
+```
+
+En cada `push` y `pull request`, el workflow [`.github/workflows/validate.yml`](./.github/workflows/validate.yml)
+lo ejecuta y, además, escanea secretos con **gitleaks**.
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia **MIT** — ver [`LICENSE`](./LICENSE).

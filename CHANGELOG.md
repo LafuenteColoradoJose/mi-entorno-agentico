@@ -6,6 +6,15 @@ y el proyecto se adhiere al [Versionado Semántico](https://semver.org/lang/es/)
 
 ## [No publicado]
 
+### Añadido
+- Script de validación `scripts/validate.sh` y workflow de CI `.github/workflows/validate.yml`
+  (frontmatter, enlaces internos y escaneo de secretos con gitleaks).
+- Licencia **MIT** (`LICENSE`).
+
+### Cambios
+- El *Definition of Done* de `/test` se adapta al tipo de proyecto: app/web ≥80 %, scripts e
+  infraestructura por rutas críticas, y datos/IA por validación de datos + métrica + reproducibilidad.
+
 ## [1.2.0] - 2026-10-17
 
 ### Añadido
