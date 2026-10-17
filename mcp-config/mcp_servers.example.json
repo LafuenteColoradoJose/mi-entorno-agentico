@@ -5,29 +5,30 @@
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "/ruta/absoluta/a/tu/espacio/de/trabajo"
+        "${WORKSPACE_PATH}"
       ]
     },
     "git": {
-      "command": "npx",
+      "command": "uvx",
       "args": [
-        "-y",
-        "@modelcontextprotocol/server-git"
+        "mcp-server-git",
+        "--repository",
+        "${REPOSITORY_PATH}"
       ]
     },
-    "postgres": {
+    "playwright": {
       "command": "npx",
       "args": [
         "-y",
-        "@modelcontextprotocol/server-postgres",
-        "postgresql://usuario:password@localhost/tu_base_de_datos"
+        "@playwright/mcp@latest"
       ]
     },
-    "puppeteer": {
+    "chrome-devtools": {
       "command": "npx",
       "args": [
         "-y",
-        "@modelcontextprotocol/server-puppeteer"
+        "chrome-devtools-mcp@latest",
+        "--headless"
       ]
     }
   }
