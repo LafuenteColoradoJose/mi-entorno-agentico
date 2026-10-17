@@ -1,7 +1,19 @@
 ---
 name: nombre-de-la-skill-en-kebab-case
-description: Breve descripción (máx 2 líneas). Debe incluir las "palabras clave" que el usuario diría para que el agente sepa cuándo activarla. Ej: "Úsalo para inicializar un proyecto Docker o escribir un Dockerfile."
+description: Breve descripción de una sola línea que indique cuándo activar la skill, incluyendo las palabras clave que diría el usuario (por ejemplo, para inicializar un proyecto Docker o escribir un Dockerfile).
 ---
+
+<!--
+  ⚠️  REGLA DE FRONTMATTER (obligatoria):
+  - `name` en kebab-case, sin espacios.
+  - `description` en UNA SOLA LÍNEA y como texto plano.
+  - NUNCA incluyas ": " (dos puntos seguido de espacio) dentro de la description
+    sin entrecomillar todo el valor: rompe el parseo YAML.
+    ❌ description: Úsalo para X. Ej: "inicializar Docker"
+    ✅ description: Úsalo para X (por ejemplo, inicializar Docker).
+    ✅ description: "Úsalo para X. Ej: inicializar Docker"
+  - Mantén la descripción corta: es lo que el agente lee para decidir si activa la skill.
+-->
 
 # 🎯 Propósito
 Explica en detalle para qué sirve esta skill. El agente leerá esto tras activarla para confirmar su contexto y el objetivo final.
