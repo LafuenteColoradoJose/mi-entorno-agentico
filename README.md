@@ -40,7 +40,7 @@ La base contiene **solo lo que aplica siempre, sin importar la tecnología**. To
 | Pieza | En la base (genérico) | Por proyecto (específico) | Dónde vive lo específico |
 |---|---|---|---|
 | **Rules** | guardrails, SDLC | reglas de dominio ("usar siempre la API X") | `AGENTS.md` del proyecto |
-| **Skills** | a11y, UX/UI | `angular`, `nuxt`, `pytorch`, `postgres-avanzado` | `.opencode/skills/` del proyecto |
+| **Skills** | a11y, UX/UI | `angular`, `nuxt`, `pytorch`, `postgres-avanzado` | carpeta de skills de tu herramienta (ver [portabilidad](#portabilidad)) |
 | **MCP** | filesystem, git, navegador | BD, MCP de Nuxt/Figma/Sentry, k8s | config MCP del proyecto |
 
 ### La regla de decisión
@@ -56,7 +56,7 @@ La base contiene **solo lo que aplica siempre, sin importar la tecnología**. To
 
 ### Cómo añadir algo específico a un proyecto (mini-tutorial)
 
-1. **Skill nueva:** copia [`templates/SKILL.template.md`](./templates/SKILL.template.md) a `.opencode/skills/<nombre>/SKILL.md` en tu proyecto y rellénalo.
+1. **Skill nueva:** copia [`templates/SKILL.template.md`](./templates/SKILL.template.md) a la carpeta de skills de tu herramienta (`.agents/skills/<nombre>/SKILL.md`, `.claude/skills/...`, `.opencode/skills/...`) y rellénalo.
 2. **MCP nuevo:** añade su entrada en la configuración MCP de tu proyecto (ver el patrón en [`mcp-config/README.md`](./mcp-config/README.md)).
 3. **Regla nueva:** añádela al `AGENTS.md` de tu proyecto.
 
@@ -78,6 +78,37 @@ Workflows bajo demanda utilizando el patrón de *progressive disclosure* para ah
 ### 3. MCP (Model Context Protocol)
 - [`mcp-config/mcp_servers.example.json`](./mcp-config/mcp_servers.example.json): Plantilla con conectores genéricos (Filesystem acotado, Git, Playwright y Chrome DevTools). Los conectores específicos como la base de datos se añaden por proyecto. Ver [`mcp-config/README.md`](./mcp-config/README.md) para sustituir los marcadores `${...}` sin hardcodear credenciales.
 
+<a id="portabilidad"></a>
+
+## 🌐 Portabilidad: funciona con cualquier agente
+
+Este kit **no depende de ningún IDE ni proveedor**. Se apoya en dos **estándares abiertos**, así que sirve igual para OpenAI, Anthropic o Google:
+
+- **Skills = [Agent Skills](https://agentskills.io/home)** — estándar abierto creado por Anthropic y leído por 30+ herramientas (Claude Code, OpenAI Codex, Cursor, Gemini CLI, Antigravity, OpenCode...). El mismo `SKILL.md` corre **sin cambios** en todas.
+- **Rules = [AGENTS.md](https://agents.md/)** — estándar abierto (+60.000 proyectos, amparado por la Linux Foundation).
+
+Lo único que cambia según la herramienta es **dónde se coloca** cada pieza:
+
+| Herramienta | Archivo/carpeta de reglas | Carpeta de skills |
+|---|---|---|
+| **Cursor** | `AGENTS.md` (+ `.cursor/rules/*.mdc`) | `.agents/skills/` |
+| **OpenAI Codex** | `AGENTS.md` | (estándar) |
+| **Claude Code** (Anthropic) | `CLAUDE.md` → *bridge* | `.claude/skills/` |
+| **Google Antigravity** | `.agents/rules/` | `.agents/skills/` |
+| **GitHub Copilot** | `AGENTS.md` / `.github/copilot-instructions.md` | — |
+| **OpenCode** | `AGENTS.md` | `.opencode/skills/` |
+
+> ℹ️ `.cursorrules` y `.clauderc` son **legacy/inexistentes**: hoy se usa `AGENTS.md` y `CLAUDE.md`.
+
+**Truco del archivo único para todos:** usa **`AGENTS.md`** como fuente de verdad y crea *bridges* de una línea para las herramientas que esperan otro nombre:
+
+```markdown
+<!-- CLAUDE.md -->
+@AGENTS.md
+```
+
+Así cubres a la vez Codex, Cursor, Copilot y OpenCode, y a Claude Code vía el bridge `CLAUDE.md` (o con `ln -s AGENTS.md CLAUDE.md`).
+
 ---
 
 ## 🚀 Cómo inyectar esto en tus proyectos
@@ -91,7 +122,7 @@ git submodule add https://github.com/LafuenteColoradoJose/mi-entorno-agentico .a
 ```
 
 ### Paso 2: Crear el "Archivo Puntero"
-Crea el archivo de configuración base de tu agente en la raíz de tu proyecto destino (ej. `.cursorrules`, `.clauderc` o `AGENTS.md`) con este contenido exacto:
+Crea el archivo de instrucciones del agente en la raíz de tu proyecto. El **estándar es [`AGENTS.md`](https://agents.md/)** (lo leen Cursor, Codex, Copilot, OpenCode...). Para las herramientas que esperan otro nombre, crea un *bridge* de una línea hacia él (ver [portabilidad](#portabilidad)). Contenido recomendado de `AGENTS.md`:
 
 ```markdown
 # Instrucciones Globales del Agente
@@ -102,6 +133,8 @@ Antes de ejecutar cualquier tarea o escribir código, ESTÁS OBLIGADO a leer, as
 
 Tus procedimientos estándar (SOPs) y estándares de código residen en `./.agentic-base/skills/`. Utiliza tu herramienta de lectura para consultarlos según requiera el contexto de la tarea.
 ```
+
+> **Prioridad ante conflicto:** Guardrails (seguridad) > reglas del proyecto > base genérica.
 
 ### Paso 3: Actualizar el submódulo (Mantenimiento)
 Dado que las *Rules* y *Skills* de este repositorio genérico irán evolucionando, puedes traerte las últimas novedades a tus proyectos locales simplemente ejecutando este comando desde la raíz de tu proyecto destino (por ejemplo, dentro de `AEMET_Visualizer_Pro`):
