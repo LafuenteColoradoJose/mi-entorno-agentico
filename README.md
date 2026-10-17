@@ -67,7 +67,7 @@ Y listo: la base sigue genérica y cada proyecto se especializa sin tocar el kit
 ### 1. Rules (El Sistema Nervioso y las Leyes)
 Políticas estrictas y marcos de trabajo que el agente debe obedecer el 100% del tiempo.
 - [`rules/guardrails.md`](./rules/guardrails.md): Reglas de "Cero Trust". Prohíbe hacer commits/push de forma autónoma sin permiso explícito y blinda el código contra la fuga de secretos o credenciales.
-- [`rules/master-workflow.md`](./rules/master-workflow.md): **El núcleo del sistema.** Implementa el ciclo de vida de desarrollo de software (SDLC) basado en el pipeline de Addy Osmani (`/spec -> /plan -> /build -> /test -> /review -> /ship`). Impone un *Definition of Done (DoD)* estricto: exige documentación inline (JSDoc), impone un 80% de cobertura en testing, y obliga a la actualización de este propio README y manuales al finalizar cada tarea.
+- [`rules/master-workflow.md`](./rules/master-workflow.md): **El núcleo del sistema.** Define el SDLC obligatorio (`/spec → /plan → /build → /test → /review → /ship`) y su *Definition of Done*. Este archivo es la **fuente única de verdad** del flujo y sus requisitos (documentación inline, cobertura de tests, actualización de manuales): consulta ahí los detalles.
 
 ### 2. Skills (Recetarios / Procedimientos Operativos)
 Workflows bajo demanda utilizando el patrón de *progressive disclosure* para ahorrar contexto.
@@ -142,3 +142,12 @@ Dado que las *Rules* y *Skills* de este repositorio genérico irán evolucionand
 ```bash
 git submodule update --remote --merge
 ```
+
+> 💡 **Proyectos estables = versiones fijas.** En vez de seguir siempre `main`, puedes anclar cada
+> proyecto a una **versión concreta** (los cambios se registran en [`CHANGELOG.md`](./CHANGELOG.md)
+> y cada versión tiene su *tag*). Así un cambio rompedor no te llega de golpe:
+>
+> ```bash
+> cd .agentic-base
+> git checkout v1.1.0
+> ```
