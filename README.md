@@ -22,7 +22,7 @@ Separarlos no es capricho: cada pieza tiene un alcance y un ciclo de vida distin
         ┌───────────────────────────────────────────────┐
         │   BASE GENÉRICA (este repo, como submódulo)    │
         │   Rules:  guardrails, SDLC                     │
-        │   Skills: a11y, UX/UI                          │
+        │   Skills: a11y, UX/UI, shell, docker, python  │
         │   MCP:    filesystem, git, navegador           │
         └───────────────────────────────────────────────┘
                               │
@@ -40,7 +40,7 @@ La base contiene **solo lo que aplica siempre, sin importar la tecnología**. To
 | Pieza | En la base (genérico) | Por proyecto (específico) | Dónde vive lo específico |
 |---|---|---|---|
 | **Rules** | guardrails, SDLC | reglas de dominio ("usar siempre la API X") | `AGENTS.md` del proyecto |
-| **Skills** | a11y, UX/UI | `angular`, `nuxt`, `pytorch`, `postgres-avanzado` | carpeta de skills de tu herramienta (ver [portabilidad](#portabilidad)) |
+| **Skills** | a11y, UX/UI, shell, docker, python | `angular`, `nuxt`, `pytorch`, `postgres-avanzado` | carpeta de skills de tu herramienta (ver [portabilidad](#portabilidad)) |
 | **MCP** | filesystem, git, navegador | BD, MCP de Nuxt/Figma/Sentry, k8s | config MCP del proyecto |
 
 ### La regla de decisión
@@ -50,9 +50,9 @@ La base contiene **solo lo que aplica siempre, sin importar la tecnología**. To
 
 ### Ejemplos según tu perfil
 
-- 🕸️ **Web / FullStack:** base = a11y + UX/UI. Por proyecto: skill `angular` o `nuxt`, MCP de Nuxt.
-- 🖧 **SysAdmin / Redes:** base = guardrails. Por proyecto: skills de `kubernetes`/`nginx`, MCP de Kubernetes.
-- 🧠 **IA / BigData:** por proyecto: skill `pytorch`, MCP de base de datos vectorial.
+- 🕸️ **Web / FullStack:** base = a11y + UX/UI + docker. Por proyecto: skill `angular` o `nuxt`, MCP de Nuxt.
+- 🖧 **SysAdmin / Redes:** base = guardrails + shell + docker. Por proyecto: skills de `kubernetes`/`nginx`, MCP de Kubernetes.
+- 🧠 **IA / BigData:** base = `python-environments`. Por proyecto: skill `pytorch`, MCP de base de datos vectorial.
 
 ### Cómo añadir algo específico a un proyecto (mini-tutorial)
 
@@ -74,6 +74,9 @@ Workflows bajo demanda utilizando el patrón de *progressive disclosure* para ah
 - [`templates/SKILL.template.md`](./templates/SKILL.template.md): Molde maestro estructurado para crear nuevas skills (vive fuera de `skills/` para que el agente no lo confunda con una skill real).
 - [`skills/html-semantics-and-a11y/SKILL.md`](./skills/html-semantics-and-a11y/SKILL.md): Fuerza al agente a comportarse como un Frontend Senior, exigiendo HTML5 semántico y estándares estrictos de accesibilidad.
 - [`skills/ux-ui-design-principles/SKILL.md`](./skills/ux-ui-design-principles/SKILL.md): Instruye a la IA en principios de diseño visual, carga cognitiva, espaciado (regla de los 8px), enfoques 100% Mobile-First (Responsive Design fluido) y metodologías estrictas para la correcta visualización de datos en Dashboards.
+- [`skills/shell-scripting-safe/SKILL.md`](./skills/shell-scripting-safe/SKILL.md): Bash robusto — `set -euo pipefail`, *quoting*, `trap`, y prohibición de `chmod 777` o `rm -rf` temerarios.
+- [`skills/docker-and-compose/SKILL.md`](./skills/docker-and-compose/SKILL.md): Dockerfiles multi-stage, ejecución no-root, versiones fijadas y `docker-compose` para desarrollo.
+- [`skills/python-environments/SKILL.md`](./skills/python-environments/SKILL.md): Entornos virtuales (`venv`), dependencias pineadas y reproducibilidad en proyectos Python.
 
 ### 3. MCP (Model Context Protocol)
 - [`mcp-config/mcp_servers.example.json`](./mcp-config/mcp_servers.example.json): Plantilla con conectores genéricos (Filesystem acotado, Git, Playwright y Chrome DevTools). Los conectores específicos como la base de datos se añaden por proyecto. Ver [`mcp-config/README.md`](./mcp-config/README.md) para sustituir los marcadores `${...}` sin hardcodear credenciales.

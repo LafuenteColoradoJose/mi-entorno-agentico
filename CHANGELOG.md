@@ -6,6 +6,12 @@ y el proyecto se adhiere al [Versionado Semántico](https://semver.org/lang/es/)
 
 ## [No publicado]
 
+## [1.2.0] - 2026-10-17
+
+### Añadido
+- Skills genéricas transversales a las tres facetas del perfil:
+  `shell-scripting-safe`, `docker-and-compose` y `python-environments`.
+
 ## [1.1.0] - 2026-10-17
 
 ### Añadido
