@@ -68,6 +68,7 @@ Y listo: la base sigue genérica y cada proyecto se especializa sin tocar el kit
 Políticas estrictas y marcos de trabajo que el agente debe obedecer el 100% del tiempo.
 - [`rules/guardrails.md`](./rules/guardrails.md): Reglas de "Cero Trust". Prohíbe hacer commits/push de forma autónoma sin permiso explícito y blinda el código contra la fuga de secretos o credenciales.
 - [`rules/master-workflow.md`](./rules/master-workflow.md): **El núcleo del sistema.** Define el SDLC obligatorio (`/spec → /plan → /build → /test → /review → /ship`) y su *Definition of Done*. Este archivo es la **fuente única de verdad** del flujo y sus requisitos (documentación inline, cobertura de tests, actualización de manuales): consulta ahí los detalles.
+- [`rules/multi-agent.md`](./rules/multi-agent.md): **Guía condicional** para repartir el trabajo entre varios agentes (orquestador, pipeline, fan-out paralelo, generador + crítico). Incluye el pipeline de referencia, el mapeo a las 6 fases y las reglas de coordinación (contexto limpio, worktrees, límite de iteraciones). No aplica a tareas de un solo agente.
 
 ### 2. Skills (Recetarios / Procedimientos Operativos)
 Workflows bajo demanda utilizando el patrón de *progressive disclosure* para ahorrar contexto.

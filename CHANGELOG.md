@@ -6,7 +6,12 @@ y el proyecto se adhiere al [Versionado Semántico](https://semver.org/lang/es/)
 
 ## [No publicado]
 
-## [1.3.0] - 2026-10-17
+### Añadido
+- Regla-guía `rules/multi-agent.md`: patrones de trabajo multiagente (orquestador, pipeline,
+  fan-out paralelo, generador + crítico), mapeo a las 6 fases del SDLC y reglas de
+  coordinación (contexto limpio, worktrees, puertas humanas y límite de iteraciones).
+
+## [1.3.0] - 2026-10-22
 
 ### Añadido
 - Script de validación `scripts/validate.sh` y workflow de CI `.github/workflows/validate.yml`
