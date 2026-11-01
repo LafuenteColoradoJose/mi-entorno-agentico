@@ -6,12 +6,21 @@ y el proyecto se adhiere al [Versionado Semántico](https://semver.org/lang/es/)
 
 ## [No publicado]
 
+## [1.5.0] - 2026-11-01
+
+### Añadido
+- Regla `rules/code-conventions.md`: convenciones de código genéricas (idioma, nomenclatura,
+  formato y checklist de calidad). Identificadores y tests en inglés; comentarios, documentación
+  y descripciones de commit en español.
+
+## [1.4.0] - 2026-10-22
+
 ### Añadido
 - Regla-guía `rules/multi-agent.md`: patrones de trabajo multiagente (orquestador, pipeline,
   fan-out paralelo, generador + crítico), mapeo a las 6 fases del SDLC y reglas de
   coordinación (contexto limpio, worktrees, puertas humanas y límite de iteraciones).
 
-## [1.3.0] - 2026-10-22
+## [1.3.0] - 2026-10-17
 
 ### Añadido
 - Script de validación `scripts/validate.sh` y workflow de CI `.github/workflows/validate.yml`

@@ -11,6 +11,7 @@ las tareas, sin importar la tecnología del proyecto.
 - **Obligatorias (100% de las tareas):**
   - [`guardrails.md`](./guardrails.md) — seguridad, secretos y control de versiones.
   - [`master-workflow.md`](./master-workflow.md) — SDLC y *Definition of Done*.
+  - [`code-conventions.md`](./code-conventions.md) — idioma, nomenclatura, formato y checklist.
 - **Condicional (solo cuando aplica el supuesto):**
   - [`multi-agent.md`](./multi-agent.md) — cómo repartir el trabajo entre varios agentes.
 
