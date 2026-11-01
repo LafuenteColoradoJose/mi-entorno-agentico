@@ -4,14 +4,17 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y el proyecto se adhiere al [Versionado Semántico](https://semver.org/lang/es/).
 
-## [No publicado]
-
 ## [1.5.0] - 2026-11-01
 
 ### Añadido
 - Regla `rules/code-conventions.md`: convenciones de código genéricas (idioma, nomenclatura,
   formato y checklist de calidad). Identificadores y tests en inglés; comentarios, documentación
   y descripciones de commit en español.
+- Regla `rules/context-economy.md`: disciplina de economía de contexto (leer lo justo,
+  no repetir, entregar diffs) con presupuesto orientativo y excepciones.
+- Skill `skills/context-economy/SKILL.md`: procedimiento de navegación dirigida
+  (mapa → localizar → leer ventana → apuntar → verificar).
+- Plantilla `templates/REPO-MAP.template.md`: mapa de una página por proyecto.
 
 ## [1.4.0] - 2026-10-22
 
