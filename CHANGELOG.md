@@ -4,6 +4,12 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y el proyecto se adhiere al [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.5.1] - 2026-11-05
+
+### Cambios
+- `rules/master-workflow.md` y `README.md`: sustituyen los diagramas ASCII por Mermaid,
+  con línea de respaldo legible en cualquier visor.
+
 ## [1.5.0] - 2026-11-01
 
 ### Añadido

@@ -6,12 +6,16 @@ Esta regla define el ciclo de vida OBLIGATORIO para la creación de cualquier co
 
 El agente NUNCA debe saltar ciegamente a escribir código sin haber consolidado las fases previas. El proceso sigue este flujo estricto:
 
- DEFINE          PLAN           BUILD          VERIFY         REVIEW          SHIP
- ┌──────┐      ┌──────┐      ┌──────┐      ┌──────┐      ┌──────┐      ┌──────┐
- │ Idea │ ───▶ │ Spec │ ───▶ │ Code │ ───▶ │ Test │ ───▶ │  QA  │ ───▶ │  Go  │
- │Refine│      │  PRD │      │ Impl │      │Debug │      │ Gate │      │ Live │
- └──────┘      └──────┘      └──────┘      └──────┘      └──────┘      └──────┘
-  /spec          /plan          /build        /test         /review       /ship
+```mermaid
+flowchart LR
+    A["DEFINE<br/>Idea · Refine<br/>/spec"] --> B["PLAN<br/>Spec · PRD<br/>/plan"]
+    B --> C["BUILD<br/>Code · Impl<br/>/build"]
+    C --> D["VERIFY<br/>Test · Debug<br/>/test"]
+    D --> E["REVIEW<br/>QA · Gate<br/>/review"]
+    E --> F["SHIP<br/>Go · Live<br/>/ship"]
+```
+
+**Flujo:** `Idea → /spec → Spec → /plan → Code → /build → Test → /test → QA → /review → Go → /ship`
 
 ## Fases y Pseudo-Comandos (Triggers)
 

@@ -18,20 +18,15 @@ Separarlos no es capricho: cada pieza tiene un alcance y un ciclo de vida distin
 
 ### El modelo: una base universal + especialización por proyecto
 
+```mermaid
+flowchart TD
+    BASE["BASE GENÉRICA (este repo, como submódulo)<br/>Rules: guardrails, SDLC<br/>Skills: a11y, UX/UI, shell, docker, python<br/>MCP: filesystem, git, navegador"]
+    BASE --> ANG["Proyecto Angular<br/>+ skills/angular<br/>+ MCP de Angular"]
+    BASE --> NUXT["Proyecto Nuxt<br/>+ skills/nuxt<br/>+ MCP de Nuxt"]
+    BASE --> TORCH["Proyecto PyTorch<br/>+ skills/pytorch<br/>+ MCP de BD vectorial"]
 ```
-        ┌───────────────────────────────────────────────┐
-        │   BASE GENÉRICA (este repo, como submódulo)    │
-        │   Rules:  guardrails, SDLC                     │
-        │   Skills: a11y, UX/UI, shell, docker, python  │
-        │   MCP:    filesystem, git, navegador           │
-        └───────────────────────────────────────────────┘
-                              │
-          ┌───────────────────┼───────────────────┐
-          ▼                   ▼                   ▼
-   Proyecto Angular     Proyecto Nuxt      Proyecto PyTorch
-   + skills/angular     + skills/nuxt      + skills/pytorch
-   + MCP de Angular     + MCP de Nuxt      + MCP de BD vectorial
-```
+
+**En corto:** la base genérica → **Angular** (+ `skills/angular`), **Nuxt** (+ `skills/nuxt`), **PyTorch** (+ `skills/pytorch`).
 
 La base contiene **solo lo que aplica siempre, sin importar la tecnología**. Todo lo que depende de una tecnología concreta vive **en el proyecto**, no aquí. Así la base se mantiene pequeña y universal, y no consume contexto de más.
 
