@@ -4,6 +4,15 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y el proyecto se adhiere al [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.6.0] - 2026-11-10
+
+### Añadido
+- Skill `skills/architecture-visualization/SKILL.md`: investiga un sistema, separa lo
+  confirmado de lo inferido y produce diagramas de contexto, componentes, flujo, secuencia
+  o despliegue, respetando el formato que ya use el proyecto.
+- Plantilla `templates/ARCHITECTURE-DIAGRAM.template.html`: página HTML autónoma (sin
+  bibliotecas externas) con SVG interactivo, accesible y en modo claro/oscuro.
+
 ## [1.5.1] - 2026-11-05
 
 ### Cambios
