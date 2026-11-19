@@ -45,6 +45,7 @@ flowchart LR
 5. **`/review` (Review - QA Gate):** 
    - **Objetivo:** Auditoría de calidad.
    - **Acción:** Auto-revisión implacable (Accesibilidad, rendimiento, deuda técnica). Pide feedback humano.
+   - **Seguridad (si aplica):** [`skills/security-and-hardening/SKILL.md`](../skills/security-and-hardening/SKILL.md).
 
 6. **`/ship` (Ship - Go Live & Documentation Update):** 
    - **Objetivo:** Cerrar el ciclo y mantener el conocimiento.

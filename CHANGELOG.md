@@ -4,6 +4,16 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y el proyecto se adhiere al [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.8.0] - 2026-11-19
+
+### Añadido
+- Skill `skills/security-and-hardening/SKILL.md`: procedimiento de revisión y
+  endurecimiento de seguridad por riesgo y evidencia (límites de confianza, STRIDE,
+  OWASP Top 10, verificación y pruebas), sin imponer herramientas ni marcos.
+
+### Cambios
+- `rules/guardrails.md` y `rules/master-workflow.md` (`/review`) enlazan la skill de seguridad.
+
 ## [1.7.0] - 2026-11-19
 
 ### Añadido

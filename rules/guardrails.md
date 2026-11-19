@@ -26,3 +26,10 @@ Estas reglas actúan como la "Constitución" del agente y deben ser respetadas i
         - id: gitleaks
   ```
 - **`.gitignore` preventivo:** asegúrate de que `.env`, `*.pem`, `*.key`, `*.p12` y similares nunca se versionan; si un secreto llegó a subirse, considera la clave comprometida y **rótala** inmediatamente.
+
+## 4. Procedimiento de Revisión
+
+Esta regla fija las **prohibiciones** (siempre activas). El **procedimiento** para revisar y
+endurecer un cambio está en
+[`../skills/security-and-hardening/SKILL.md`](../skills/security-and-hardening/SKILL.md) y se
+activa cuando el cambio toca entradas, autenticación, datos, integraciones o dependencias.
