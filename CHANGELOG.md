@@ -4,6 +4,18 @@ Todos los cambios notables de este proyecto se documentan en este archivo.
 El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/)
 y el proyecto se adhiere al [Versionado Semántico](https://semver.org/lang/es/).
 
+## [1.7.0] - 2026-11-19
+
+### Añadido
+- Skill `skills/testing-and-quality/SKILL.md`: estrategia de pruebas según comportamiento
+  y riesgo (unidad, integración, contrato, E2E y validación sin tests), sin fijar
+  herramientas ni umbrales; los toma de las reglas del proyecto.
+
+### Cambios
+- Las skills `testing-and-quality` y `architecture-visualization` adoptan el formato común
+  del kit: secciones `🎯 / 🚦 / 📋 / 🛠️ / 🛑`, prerrequisitos y pasos numerados.
+- `rules/master-workflow.md` enlaza la skill de testing desde la fase `/test`.
+
 ## [1.6.0] - 2026-11-10
 
 ### Añadido

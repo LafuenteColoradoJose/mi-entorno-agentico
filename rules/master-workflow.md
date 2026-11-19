@@ -35,6 +35,7 @@ flowchart LR
 4. **`/test` (Verify - Test/Debug & Coverage):** 
    - **Objetivo:** Demostrar que funciona de forma robusta.
    - **Acción:** Escribe o ejecuta pruebas unitarias y E2E.
+   - **Procedimiento:** [`skills/testing-and-quality/SKILL.md`](../skills/testing-and-quality/SKILL.md).
    - **✅ Definition of Done (DoD), adaptado al tipo de proyecto:**
      - **App / web / servicio:** cobertura de tests unitarios ≥ **80%**.
      - **Scripts / automatización / infraestructura:** tests de comportamiento de las rutas críticas (no se exige un % global).

@@ -19,6 +19,7 @@ y en [**portabilidad**](../README.md#portabilidad).
 | Skill | Para qué |
 |---|---|
 | [`context-economy`](./context-economy/SKILL.md) | Navegar por el repo leyendo lo justo para ahorrar tokens. |
+| [`testing-and-quality`](./testing-and-quality/SKILL.md) | Diseñar, escribir y ejecutar pruebas según el comportamiento, el riesgo y las convenciones del proyecto. |
 | [`architecture-visualization`](./architecture-visualization/SKILL.md) | Investigar un sistema y producir diagramas respaldados por evidencia. |
 | [`html-semantics-and-a11y`](./html-semantics-and-a11y/SKILL.md) | HTML5 semántico y accesibilidad estricta. |
 | [`ux-ui-design-principles`](./ux-ui-design-principles/SKILL.md) | Diseño visual, mobile-first y visualización de datos en dashboards. |

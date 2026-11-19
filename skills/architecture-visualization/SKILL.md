@@ -18,9 +18,7 @@ dependencias obligatorias ni afirmes relaciones que el código o el usuario no c
 La plantilla complementaria está en ../../templates/ARCHITECTURE-DIAGRAM.template.html.
 -->
 
-# Visualización de arquitectura
-
-## Propósito
+# 🎯 Propósito
 
 Ayudar a entender, explicar y compartir la estructura o el comportamiento de un sistema
 mediante diagramas útiles. El resultado debe responder a una pregunta concreta: por
@@ -30,7 +28,7 @@ dependencia.
 La visualización es un artefacto de documentación. No modifica ni ejecuta el sistema
 representado.
 
-## Cuándo usarla
+# 🚦 Cuándo usarla (Triggers)
 
 Actívala cuando el usuario pida:
 
@@ -41,7 +39,18 @@ Actívala cuando el usuario pida:
 
 No la actives para cambios de código que no necesiten explicación visual.
 
-## Principios
+# 📋 Prerrequisitos (Pre-flight checks)
+
+Antes de dibujar, verifica:
+
+1. Lee las instrucciones del proyecto (`AGENTS.md`) y su mapa (`REPO-MAP.md`, si existe).
+2. Comprueba qué formato de diagramas ya usa el proyecto (Mermaid, PlantUML, C4, imágenes)
+   para no introducir otro.
+3. Localiza dónde se guarda la documentación y si hay un diagrama previo que actualizar en
+   vez de duplicarlo.
+4. Confirma qué pregunta debe responder el diagrama y para quién es.
+
+# 🧭 Principios
 
 1. **Empieza por la pregunta.** Aclara el alcance a partir de la petición. Si ya es
    concreto, continúa sin pedir confirmación. Si es amplio, elige una vista inicial útil
@@ -66,9 +75,9 @@ No la actives para cambios de código que no necesiten explicación visual.
    proyecto. No añadas dependencias nuevas (incluida Archify) solo para producir el
    diagrama.
 
-## Flujo de trabajo
+# 🛠️ Flujo de Trabajo (Standard Operating Procedure)
 
-### 1. Elegir la vista
+## Paso 1: Elegir la vista
 
 Selecciona el tipo que mejor responda a la pregunta:
 
@@ -81,7 +90,7 @@ Selecciona el tipo que mejor responda a la pregunta:
 Para un repositorio grande, crea primero una vista de alto nivel. Añade vistas secundarias
 solo si responden preguntas diferentes.
 
-### 2. Reunir evidencia
+## Paso 2: Reunir evidencia
 
 - Identifica entradas (rutas HTTP, comandos, eventos, tareas o interfaz) y salidas.
 - Sigue las llamadas o transformaciones relevantes hasta completar el flujo solicitado.
@@ -95,7 +104,7 @@ En diagramas basados en código, ofrece referencias concretas. En HTML, enlaza d
 elemento a una ruta relativa y, cuando sea posible, a líneas o símbolos estables. Si el
 enlace no será navegable desde el contexto del lector, muestra la ruta como texto.
 
-### 3. Preparar el modelo
+## Paso 3: Preparar el modelo
 
 Antes de maquetar, define una lista compacta de:
 
@@ -107,7 +116,7 @@ Antes de maquetar, define una lista compacta de:
 Usa la misma entidad con el mismo nombre en todas las vistas. No mezcles procesos de
 tiempo de ejecución con pasos manuales o fases de despliegue sin distinguirlos.
 
-### 4. Crear el artefacto
+## Paso 4: Crear el artefacto
 
 1. Si el proyecto ya usa Mermaid, PlantUML, C4 u otro formato, sigue su convención.
 2. Si el usuario quiere un archivo visual autónomo, parte de
@@ -123,7 +132,7 @@ tiempo de ejecución con pasos manuales o fases de despliegue sin distinguirlos.
 El HTML de la plantilla usa HTML, CSS, SVG y JavaScript nativos, sin bibliotecas remotas.
 Conserva esta propiedad si el usuario pide un archivo que funcione sin conexión.
 
-### 5. Revisar y entregar
+## Paso 5: Revisar y entregar
 
 Comprueba que:
 
@@ -143,7 +152,7 @@ el renderizado.
 Entrega un resumen breve con el propósito del diagrama, su ubicación, el alcance y las
 limitaciones o inferencias relevantes. No vuelques el archivo completo en la respuesta.
 
-## Restricciones
+# 🛑 Reglas y Restricciones (Anti-patrones)
 
 - No presentes una arquitectura supuesta como si estuviera confirmada por el código.
 - No llames "tiempo real", "seguro", "resiliente" o "escalable" a un sistema sin evidencia.
